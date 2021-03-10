@@ -3,9 +3,11 @@ ul {
 }
 
 li {
+  align-items: center;
   color: white;
   border: white;
   border-style: solid;
-  margin: 5% 20%;
-  padding: 1%;
+  margin: 3% 20%;
+  padding: 2%;
+  width: 50%;
 }

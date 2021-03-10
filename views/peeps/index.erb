@@ -3,15 +3,16 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="peep_index.css">
+  <link rel="stylesheet" type="text/css" href="<%= url("/peep_index.css")%>">
 </head>
 
   <body>
-    <ul class="peeplist" id="peeplist">
+    <ul class="list-inline text-center" id="peeplist">
       <% @peeps.each do |peep| %>
-        <li class="peep" id="peep-<%= peep.id %>">
-          <%= peep.message %><br>
+        <li class="list-inline-item" id="peep-<%= peep.id %>">
+         <%= peep.message %><br> 
         </li>
+      </div>
       <% end %>
     </ul>
   </body>
