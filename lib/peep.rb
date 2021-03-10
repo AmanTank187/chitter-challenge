@@ -1,5 +1,5 @@
 require_relative 'database_connection'
-
+require 'time'
 class Peep 
     attr_reader :id, :message , :created_at
 
@@ -10,7 +10,7 @@ class Peep
     end 
 
     def self.all
-        result = DatabaseConnection.query("SELECT * FROM peeps;")
+        result = DatabaseConnection.query("SELECT * FROM peeps ORDER BY id DESC;")
         result.map do |peep|
           Peep.new(
             message: peep['message'],
@@ -28,4 +28,6 @@ class Peep
           created_at: result[0]['created_at'],
          )
      end 
+
+     
 end

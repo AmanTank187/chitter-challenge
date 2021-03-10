@@ -15,6 +15,7 @@
       <% @peeps.each do |peep| %>
         <li class="list-inline-item" id="peep-<%= peep.id %>">
          <%= peep.message %><br> 
+         <%= (Time.parse(peep.created_at)).strftime("%H:%M | %m-%e-%y ")%><br>
         </li>
       </div>
       <% end %>

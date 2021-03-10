@@ -4,8 +4,10 @@ require 'database_helpers'
 describe Peep do
     describe '.all' do
       it 'Gets a list of peeps' do
-      peep = Peep.create(message: "Hello")
+        
       Peep.create(message: "Hello testy")
+      peep = Peep.create(message: "Hello")
+      
       peeps = Peep.all
 
       expect(peeps.length).to eq 2
