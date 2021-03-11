@@ -7,6 +7,10 @@
 </head>
 
   <body>
+  <% if @user %>
+  <h1>Welcome, <%= @user.email %></h1>
+<% end %>
+
   <form action="/peeps/new" method="get">
     <input type="submit" value="Create a peep" />
   </form>

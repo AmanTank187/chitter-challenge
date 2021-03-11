@@ -1,5 +1,5 @@
 require_relative 'database_connection'
-require 'time'
+
 class Peep 
     attr_reader :id, :message , :created_at
 
