@@ -3,9 +3,11 @@ require './lib/peep'
 require './database_connection_setup'
 require 'time'
 require './lib/user'
+require 'sinatra/flash'
 
 class ChitterApp < Sinatra::Base 
     enable :sessions
+    register Sinatra::Flash
     
     get '/' do
         @user = User.find(session[:user_id])
