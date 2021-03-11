@@ -12,19 +12,17 @@
   <h1>Welcome, <%= @user.email %></h1>
 <% end %>
 
-<form action="/sessions/destroy" method="post">
-  <input type="submit" value="Sign out" />
-</form>
 
   <form action="/peeps/new" method="get">
     <input type="submit" value="Create a peep" />
   </form>
 
     <ul class="list-inline text-center" id="peeplist">
-      <% @peeps.each do |peep| %>
+      <% @peeps.reverse.each do |peep| %>
         <li class="list-inline-item" id="peep-<%= peep.id %>">
          <%= peep.message %><br> 
          <%= (Time.parse(peep.created_at)).strftime("%H:%M | %m-%e-%y ")%><br>
+         <%= peep.email %><br> 
         </li>
       </div>
       <% end %>

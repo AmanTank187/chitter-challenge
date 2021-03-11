@@ -11,22 +11,31 @@ class ChitterApp < Sinatra::Base
     
     get '/' do
         @user = User.find(session[:user_id])
+    if @user
         @peeps = Peep.all
         erb :"peeps/index"  
+    else 
+        redirect '/users/new'
       end
+    end 
 
     get '/peeps/new' do
-
+        @user = User.find(session[:user_id])
         erb:'/peeps/new'
     end 
 
     post '/peeps' do
-        Peep.create(message: params[:message])
+        Peep.create(message: params[:message],user_id: session[:user_id])
         redirect '/'
     end 
 
     get '/users/new' do
-        erb :"users/new"
+        @user = User.find(session[:user_id])
+        if !@user
+            erb :"users/new"
+        else 
+            redirect '/'
+        end 
     end
       
     post '/users' do
@@ -36,7 +45,12 @@ class ChitterApp < Sinatra::Base
     end 
 
     get '/sessions/new' do
-        erb :"sessions/new"
+        @user = User.find(session[:user_id])
+        if !@user
+            erb :"sessions/new"
+        else 
+            redirect '/'
+        end 
       end 
 
       post '/sessions' do
