@@ -33,6 +33,18 @@ class Peep
          )
      end
 
+     def self.where(user_id:)
+      result = DatabaseConnection.query("SELECT * FROM peeps WHERE user_id = #{user_id};")
+      result.map do |peep|
+        Peep.new(
+          message: peep['message'],
+          created_at: peep['created_at'],
+          id: peep['id'],
+          user_id: peep['user_id']
+        )
+      end
+     end 
+
     #  def find_email(user_id)
     #     DatabaseConnection.query("SELECT email FROM users WHERE users.id= #{11}")[0]['email']
     #   end

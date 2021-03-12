@@ -29,4 +29,21 @@ describe Peep do
         end
     end
 
+    describe '.where' do
+      it ' Gets the relevant peeps from the database' do 
+        user = User.create(email: 'test@example.com', password: 'password123')
+        peep = Peep.create(user_id: user.id, message: "Hello")
+        peep = Peep.create(user_id: user.id, message: "Yo yo yo")
+    
+        peeps = Peep.where(user_id: user.id)
+        peep = peeps.first
+        persisted_data = persisted_data(table: 'peeps', id: peep.id)
+    
+        expect(peeps.length).to eq 2
+        expect(peep.id).to eq persisted_data.first['id']
+        expect(peep.message).to eq 'Hello'
+        expect(peep.user_id).to eq user.id
+      end
+    end 
+
 end 
