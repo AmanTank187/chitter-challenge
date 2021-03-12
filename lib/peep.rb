@@ -2,25 +2,23 @@ require_relative 'database_connection'
 
 
 class Peep 
-    attr_reader :id, :message , :created_at, :user_id, :email
+    attr_reader :id, :message , :created_at, :user_id
 
-    def initialize(id:,message:,created_at:, user_id:, email:)
+    def initialize(id:,message:,created_at:, user_id:)
         @message = message
         @id = id
         @created_at = created_at
         @user_id = user_id
-        @email = email
     end 
 
     def self.all
-        result = DatabaseConnection.query("SELECT * FROM peeps JOIN users ON peeps.user_id = users.id")
+        result = DatabaseConnection.query("SELECT * FROM peeps")
         result.map do |peep|
           Peep.new(
             message: peep['message'],
             created_at: peep['created_at'],
             id: peep['id'],
-            user_id: peep['user_id'],
-            email: peep['email']
+            user_id: peep['user_id']
           )
         end
       end
@@ -34,4 +32,9 @@ class Peep
           user_id: result[0]['user_id'],
          )
      end
+
+    #  def find_email(user_id)
+    #     DatabaseConnection.query("SELECT email FROM users WHERE users.id= #{11}")[0]['email']
+    #   end
+
 end

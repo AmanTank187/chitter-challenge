@@ -10,26 +10,28 @@
   <link rel="stylesheet" type="text/css" href="<%= url("/layout.css")%>">
 </head>
 <body>
-
   <div class="jumbotron text-center">
       <h1>Chitter</h1>
     <% if @user %> 
-      <form class="form-inline" action="/sessions/destroy" method="post" >
+      <form class="form-inline" action="/sessions/destroy" method="POST">
       <div class="col-md-2">
         <button type="submit" class="btn btn-primary mb-5">Sign out</button>
       </div>
     </form>
     <% else %> 
-    <form class="form-inline" action="/users/new" method="get" >
+    <form class="form-inline" action="/users/new">
       <div class="col-md-1">
-        <button type="submit" class="btn btn-primary mb-5">Sign up</button>
+        <button type="submit" class="btn btn-primary mb-5">Join us</button>
       </div>
     </form>
-    <form class="form-inline" action="/sessions/new" method="get" >
+    <form class="form-inline" action="/sessions/new">
     <div class="col-md-1">
-      <button type="submit" class="btn btn-primary mb-5">Sign in</button>
+      <button type="submit" class="btn btn-primary mb-5">Log in</button>
     </div>
   </form>
+  <h2>
+    <%= flash[:notice] %>
+  </h2>
     <% end %> 
   </div>
 
