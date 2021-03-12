@@ -1,0 +1,21 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="<%= url("/peep_index.css")%>">
+</head>
+
+<body>
+        <ul class="list-inline text-center" id="userpeeplist">
+            <% @result.each do |result| %>
+                <li class="list-inline-item" id="userpeep">
+                <%= result['message'] %><br> 
+                </li>
+            </div>
+            <% end %>
+            </ul>
+</body>
+  
+
+</html>

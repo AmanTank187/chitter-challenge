@@ -19,6 +19,12 @@ class ChitterApp < Sinatra::Base
       end
     end 
 
+    get '/home' do
+      @user = User.find(session[:user_id])
+      @result = DatabaseConnection.query("SELECT * FROM peeps WHERE user_id = #{session[:user_id]};")
+      erb:'/peeps/home'
+    end 
+
     get '/peeps/new' do
         @user = User.find(session[:user_id])
         erb:'/peeps/new'
