@@ -46,7 +46,9 @@ class Peep
      end 
 
      def email(user_id)
-      DatabaseConnection.query("SELECT email FROM users WHERE id='#{user_id}'").first
+      result = DatabaseConnection.query("SELECT email FROM users WHERE id='#{user_id}'").first
+      result['email']
+      
     end
 
 end
