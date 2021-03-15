@@ -8,7 +8,7 @@ class Peep
         @message = message
         @id = id
         @created_at = created_at
-        @user_id = user_id
+        @user_id = user_id.to_i
     end 
 
     def self.all
@@ -46,7 +46,7 @@ class Peep
      end 
 
      def email(user_id)
-      DatabaseConnection.query("SELECT email FROM users WHERE id='#{user_id}'")[0]['email']
+      DatabaseConnection.query("SELECT email FROM users WHERE id='#{user_id}'").first
     end
 
 end
