@@ -9,8 +9,10 @@
   <body>
   <%= flash[:notice] %>
   <% if @user %>
+  <div class"welcome">
   <h1>Welcome, <%= @user.email %></h1>
-<% end %>
+  </div> 
+  <% end %>
 
 
   <form action="/peeps/new" method="get">

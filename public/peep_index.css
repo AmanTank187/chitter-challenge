@@ -11,3 +11,8 @@ li {
   padding: 2%;
   width: 50%;
 }
+
+.welcome {
+  font-size: 36px;
+  color: white;
+}

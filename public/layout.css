@@ -7,6 +7,13 @@
   text-align: center;
 }
 
+.flash {
+  text-align: right;
+  color: white;
+}
+
 body {
   background-color: #1f2833;
 }
+
+
