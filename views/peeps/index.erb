@@ -24,7 +24,6 @@
         <li class="list-inline-item" id="peep-<%= peep.id %>">
          <%= peep.message %><br> 
          <%= (Time.parse(peep.created_at)).strftime("%H:%M | %m-%e-%y ")%><br>
-         <% peep.email(peep.user_id) %><br> 
         </li>
       </div>
       <% end %>
