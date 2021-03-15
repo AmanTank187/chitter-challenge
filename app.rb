@@ -13,6 +13,8 @@ class ChitterApp < Sinatra::Base
         @user = User.find(session[:user_id])
     if @user
         @peeps = Peep.all
+        p "My peeps being printed HERE:"
+        p @peeps
         erb :"peeps/index"  
     else 
         redirect '/users/new'

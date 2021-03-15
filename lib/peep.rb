@@ -45,8 +45,8 @@ class Peep
       end
      end 
 
-    #  def find_email(user_id)
-    #     DatabaseConnection.query("SELECT email FROM users WHERE users.id= #{11}")[0]['email']
-    #   end
+     def email(user_id)
+      DatabaseConnection.query("SELECT email FROM users WHERE id='#{user_id}'")[0]['email']
+    end
 
 end

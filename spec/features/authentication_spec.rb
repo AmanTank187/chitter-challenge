@@ -33,7 +33,7 @@ feature 'authentication' do
         expect(page).not_to have_content 'Welcome, test@example.com'
         expect(page).to have_content 'Please check your email or password.'
       end
-
+ 
       scenario 'a user can sign out' do
         # Create the user
         User.create(email: 'test@example.com', password: 'password123')
