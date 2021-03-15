@@ -1,6 +1,6 @@
 /**/.DS_Store
 /coverage
-
+/gemfile.lock
 
 # Local cache of Rubocop remote config
 .rubocop-*
